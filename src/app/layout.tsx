@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
+import Particles from '@/components/particles';
 import './globals.css';
 
 const geistSans = Geist({
@@ -28,7 +29,19 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <div className="relative z-10 w-full">{children}</div>
+        <div className="fixed inset-0 w-full h-full -z-10">
+          <Particles
+            particleColors={['#00FF00']}
+            particleCount={300}
+            particleSpread={10}
+            speed={0.3}
+            particleBaseSize={200}
+            moveParticlesOnHover={false}
+            alphaParticles={true}
+            disableRotation={true}
+          />
+        </div>
       </body>
     </html>
   );
