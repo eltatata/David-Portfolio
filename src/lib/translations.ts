@@ -70,6 +70,10 @@ export const translations = {
           title: 'Reume',
           description: 'Scheduling app with calendar integration.',
         },
+        tasktraker: {
+          title: 'Tasktraker',
+          description: 'Task tracking platform.',
+        },
       },
     },
     contact: {
@@ -151,6 +155,10 @@ export const translations = {
         reume: {
           title: 'Reume',
           description: 'Aplicación de agenda con integración de calendario.',
+        },
+        tasktraker: {
+          title: 'Tasktraker',
+          description: 'Plataforma de seguimiento de tareas.',
         },
       },
     },
