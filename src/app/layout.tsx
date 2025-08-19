@@ -43,13 +43,13 @@ export default function RootLayout({
         <div className="fixed inset-0 w-full h-full -z-10">
           <Particles
             particleColors={['#00FF00']}
-            particleCount={300}
+            particleCount={500}
             particleSpread={10}
-            speed={0.3}
-            particleBaseSize={200}
+            speed={0.1}
+            particleBaseSize={300}
             moveParticlesOnHover={false}
             alphaParticles={true}
-            disableRotation={true}
+            disableRotation={false}
           />
         </div>
       </body>
