@@ -4,6 +4,7 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import Particles from '@/components/particles';
 import { ThemeProvider } from '@/components/theme-provider';
 import './globals.css';
+import { I18nProvider } from '@/components/i18n-provider';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -37,7 +38,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            {children}
+            <I18nProvider>{children}</I18nProvider>
           </ThemeProvider>
         </div>
         <div className="fixed inset-0 w-full h-full -z-10">
