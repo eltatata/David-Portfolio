@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { ModeToggle } from './mode-toggle';
+import { AnimatedThemeToggler } from '@/components/animated-theme-toggler';
 import { LanguageSwitcher } from './language-switcher';
 
 export function Navbar() {
@@ -43,7 +43,7 @@ export function Navbar() {
           </div>
           <div className="flex items-center space-x-2">
             <LanguageSwitcher />
-            <ModeToggle />
+            <AnimatedThemeToggler />
           </div>
         </div>
       </div>
