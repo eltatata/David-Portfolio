@@ -6,11 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { ModeToggle } from './mode-toggle';
 import { LanguageSwitcher } from './language-switcher';
 
-interface NavbarProps {
-  onNavigate: (sectionId: string) => void;
-}
-
-export function Navbar({ onNavigate }: NavbarProps) {
+export function Navbar() {
   const { t } = useTranslation();
 
   const navItems = [
@@ -19,6 +15,11 @@ export function Navbar({ onNavigate }: NavbarProps) {
     { key: 'projects', id: 'projects' },
     { key: 'contact', id: 'contact' },
   ];
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    element?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <motion.nav
@@ -33,7 +34,7 @@ export function Navbar({ onNavigate }: NavbarProps) {
             {navItems.map((item) => (
               <button
                 key={item.key}
-                onClick={() => onNavigate(item.id)}
+                onClick={() => scrollToSection(item.id)}
                 className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
                 {t(`nav.${item.key}`)}
