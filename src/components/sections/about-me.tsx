@@ -6,7 +6,9 @@ import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { Github, Linkedin, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import LogoLoop from '@/components/logo-loop';
 import { FadeInSection } from './fade-in-section';
+import { logosInfo } from '@/lib/logos-info';
 
 export function AboutMe() {
   const { t } = useTranslation();
@@ -71,6 +73,7 @@ export function AboutMe() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8, duration: 0.6, ease: 'easeOut' }}
+            className="mb-12"
           >
             <Button className="backdrop-blur-md bg-primary/90 hover:bg-primary">
               <Link
@@ -82,6 +85,24 @@ export function AboutMe() {
                 {t('about.downloadCV')}
               </Link>
             </Button>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1, duration: 0.6, ease: 'easeOut' }}
+          >
+            <LogoLoop
+              logos={logosInfo}
+              speed={80}
+              direction="left"
+              logoHeight={45}
+              gap={40}
+              pauseOnHover
+              scaleOnHover
+              fadeOut
+              fadeOutColor="#00000000"
+            />
           </motion.div>
         </div>
       </FadeInSection>
