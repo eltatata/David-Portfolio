@@ -15,47 +15,54 @@ export const translations = {
     },
     experience: {
       title: 'Experience',
-      present: 'Present',
       fullStackDeveloper: 'Full Stack Software Developer',
       nodeJSDeveloper: 'NodeJS Developer - Software Engineer',
       jobs: {
         job1: {
           company: 'Tres Pi',
           period: '2025/02 - Present',
-          description: `Enhacement for a Stanley Black & Decker web application, such as Websockets, Cron jobs, Performance.
-                        Integration between the Stanley Black & Decker web application and SAP via HTTP endpoints.
-                        Improved endpoint response time and performance with the Mongo database.
-                        Continuous communication between international teams in English.`,
+          description: [
+            'Enhacement for a Stanley Black & Decker web application, such as Websockets, Cron jobs, Performance.',
+            'Integration between the Stanley Black & Decker web application and SAP via HTTP endpoints.',
+            'Improved endpoint response time and performance with the Mongo database.',
+            'Continuous communication between international teams in English.',
+          ],
         },
         job2: {
           company: 'Globant',
           period: '2024/07 - 2025/01',
-          description: `Integrate functionalities in an IoT web app used by companies such as Amazon, Netflix and ByteDance.
-                        Contributed to projects improving performance by 40% and optimizing scalability and maintainability.
-                        Integrated Inngest to orchestrate complex email workflows with large files.
-                        Implemented AWS S3 image upload functionality.`,
+          description: [
+            'Integrate functionalities in an IoT web app used by companies such as Amazon, Netflix and ByteDance.',
+            'Contributed to projects improving performance by 40% and optimizing scalability and maintainability.',
+            'Integrated Inngest to orchestrate complex email workflows with large files.',
+            'Implemented AWS S3 image upload functionality.',
+          ],
         },
         job3: {
           company: 'Ingeniería Contable A²G',
           period: '2024/03 - 2025/07',
-          description: `Built software to streamline client management and accounting workflows for a firm.
-                        Create a rental management platform from scratch.
-                        Normalize, Create and consume a PostgreSQL database hosted in Azure.
-                        Implemented a clean architecture and DDD for a more organized project.`,
+          description: [
+            'Built software to streamline client management and accounting workflows for a firm.',
+            'Create a rental management platform from scratch.',
+            'Normalize, Create and consume a PostgreSQL database hosted in Azure.',
+            'Implemented a clean architecture and DDD for a more organized project.',
+          ],
         },
         job4: {
           company: 'Institución Universitaria Salazar y Herrera',
           period: '2023/06 - 2024/01',
-          description: `Developed REABOT, a chatbot using GPT-3.5, LangChain and Pinecone.
-                        Lead an institutional project to solve an internal communication issue.
-                        Gathered requirements and planned the software development.
-                        Applied ML techniques to process the institution's data.`,
+          description: [
+            'Developed REABOT, a chatbot using GPT-3.5, LangChain and Pinecone.',
+            'Lead an institutional project to solve an internal communication issue.',
+            'Gathered requirements and planned the software development.',
+            "Applied ML techniques to process the institution's data.",
+          ],
         },
       },
     },
     projects: {
       title: 'Projects',
-      viewProject: 'View Project',
+      viewProject: 'More projects',
       items: {
         felipe: {
           title: 'Felipe',
@@ -63,8 +70,7 @@ export const translations = {
         },
         ecommerce: {
           title: 'E-commerce - Microservices',
-          description:
-            'E-commerce with microservices architecture, featuring user authentication, payment integration, events, and more.',
+          description: 'E-commerce with microservices architecture.',
         },
         reume: {
           title: 'Reume',
@@ -78,8 +84,6 @@ export const translations = {
     },
     contact: {
       title: 'Contact me',
-      email: 'davidtabares@example.com',
-      phone: '+57 305 4331366',
     },
     footer: {
       copyright: 'Copyright © 2025 David Tabares Seguro. All rights reserved.',
@@ -101,47 +105,54 @@ export const translations = {
     },
     experience: {
       title: 'Experiencia',
-      present: 'Presente',
       fullStackDeveloper: 'Desarrollador de Software Full Stack',
       nodeJSDeveloper: 'Desarrollador NodeJS - Ingeniero de Software',
       jobs: {
         job1: {
           company: 'Tres Pi',
           period: '2025/02 - Presente',
-          description: `Mejoras para una aplicación web de Stanley Black & Decker, como Websockets, trabajos Cron y rendimiento.
-                        Integración entre la aplicación web de Stanley Black & Decker y SAP mediante endpoints HTTP.
-                        Mejora en el tiempo de respuesta y rendimiento de endpoints con la base de datos Mongo.
-                        Comunicación continua entre equipos internacionales en inglés.`,
+          description: [
+            'Mejoras para una aplicación web de Stanley Black & Decker, como Websockets, trabajos Cron y rendimiento.',
+            'Integración entre la aplicación web de Stanley Black & Decker y SAP mediante endpoints HTTP.',
+            'Mejora en el tiempo de respuesta y rendimiento de endpoints con la base de datos Mongo.',
+            'Comunicación continua entre equipos internacionales en inglés.',
+          ],
         },
         job2: {
           company: 'Globant',
           period: '2024/07 - 2025/01',
-          description: `Integración de funcionalidades en una aplicación web IoT utilizada por empresas como Amazon, Netflix y ByteDance.
-                        Contribuí a proyectos mejorando el rendimiento en un 40% y optimizando la escalabilidad y mantenibilidad.
-                        Integré Inngest para orquestar flujos de correos complejos con archivos grandes.
-                        Implementé funcionalidad de carga de imágenes en AWS S3.`,
+          description: [
+            'Integración de funcionalidades en una aplicación web IoT utilizada por empresas como Amazon, Netflix y ByteDance.',
+            'Contribuí a proyectos mejorando el rendimiento en un 40% y optimizando la escalabilidad y mantenibilidad.',
+            'Integré Inngest para orquestar flujos de correos complejos con archivos grandes.',
+            'Implementé funcionalidad de carga de imágenes en AWS S3.',
+          ],
         },
         job3: {
           company: 'Ingeniería Contable A²G',
           period: '2024/03 - 2025/07',
-          description: `Construí software para optimizar la gestión de clientes y flujos contables de una firma.
-                        Creé una plataforma de gestión de arriendos desde cero.
-                        Normalicé, creé y consumí una base de datos PostgreSQL alojada en Azure.
-                        Implementé una arquitectura limpia y DDD para un proyecto más organizado.`,
+          description: [
+            'Construí software para optimizar la gestión de clientes y flujos contables de una firma.',
+            'Creé una plataforma de gestión de arriendos desde cero.',
+            'Normalicé, creé y consumí una base de datos PostgreSQL alojada en Azure.',
+            'Implementé una arquitectura limpia y DDD para un proyecto más organizado.',
+          ],
         },
         job4: {
           company: 'Institución Universitaria Salazar y Herrera',
           period: '2023/06 - 2024/01',
-          description: `Desarrollé REABOT, un chatbot utilizando GPT-3.5, LangChain y Pinecone.
-                        Lideré un proyecto institucional para resolver un problema de comunicación interna.
-                        Recopilé requerimientos y planifiqué el desarrollo de software.
-                        Apliqué técnicas de ML para procesar los datos de la institución.`,
+          description: [
+            'Desarrollé REABOT, un chatbot utilizando GPT-3.5, LangChain y Pinecone.',
+            'Lideré un proyecto institucional para resolver un problema de comunicación interna.',
+            'Recopilé requerimientos y planifiqué el desarrollo de software.',
+            'Apliqué técnicas de ML para procesar los datos de la institución.',
+          ],
         },
       },
     },
     projects: {
       title: 'Proyectos',
-      viewProject: 'Ver Proyecto',
+      viewProject: 'Mas proyectos',
       items: {
         felipe: {
           title: 'Felipe',
@@ -149,8 +160,7 @@ export const translations = {
         },
         ecommerce: {
           title: 'E-commerce - Microservicios',
-          description:
-            'E-commerce con arquitectura de microservicios, con autenticación de usuarios, integración de pagos, eventos y más.',
+          description: 'E-commerce con arquitectura de microservicios.',
         },
         reume: {
           title: 'Reume',
@@ -164,8 +174,6 @@ export const translations = {
     },
     contact: {
       title: 'Contáctame',
-      email: 'davidtabares@example.com',
-      phone: '+57 305 4331366',
     },
     footer: {
       copyright:
