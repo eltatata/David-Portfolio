@@ -4,7 +4,6 @@ import React from 'react';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 import { Github, ExternalLink } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { FadeInSection } from './fade-in-section';
 
@@ -79,19 +78,14 @@ export function Projects() {
         </div>
 
         <FadeInSection className="text-center">
-          <Button
-            variant="outline"
-            className="backdrop-blur-md bg-background/50"
+          <Link
+            className="inline-flex items-center text-sm font-medium border border-border rounded-md py-2 px-4 bg-muted/50 hover:bg-muted transition-colors"
+            href="https://github.com/eltatata"
+            target="_blank"
           >
-            <Link
-              className="flex items-center"
-              href="https://github.com/eltatata"
-              target="_blank"
-            >
-              <Github className="mr-2 h-4 w-4" />
-              {t('projects.viewProject')}
-            </Link>
-          </Button>
+            <Github className="mr-2 h-4 w-4" />
+            {t('projects.viewProject')}
+          </Link>
         </FadeInSection>
       </FadeInSection>
     </section>
