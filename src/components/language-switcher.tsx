@@ -24,7 +24,7 @@ export function LanguageSwitcher() {
         <Button
           variant="outline"
           size="icon"
-          className="backdrop-blur-md bg-background/50"
+          className="backdrop-blur-md bg-background/50 cursor-pointer"
         >
           <Languages className="h-4 w-4" />
           <span className="sr-only">Toggle language</span>

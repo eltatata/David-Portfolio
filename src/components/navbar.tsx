@@ -35,7 +35,7 @@ export function Navbar() {
               <button
                 key={item.key}
                 onClick={() => scrollToSection(item.id)}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
               >
                 {t(`nav.${item.key}`)}
               </button>
@@ -43,7 +43,7 @@ export function Navbar() {
           </div>
           <div className="flex items-center space-x-2">
             <LanguageSwitcher />
-            <AnimatedThemeToggler />
+            <AnimatedThemeToggler className="cursor-pointer" />
           </div>
         </div>
       </div>
