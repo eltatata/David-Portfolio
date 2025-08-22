@@ -5,6 +5,11 @@ import React, {
   useRef,
   useState,
 } from 'react';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
 
 export type LogoItem =
   | {
@@ -324,6 +329,17 @@ export const LogoLoop = React.memo<LogoLoopProps>(
             content
           );
 
+          const finalContent = item.title ? (
+            <Tooltip>
+              <TooltipTrigger asChild>{inner}</TooltipTrigger>
+              <TooltipContent>
+                <p>{item.title}</p>
+              </TooltipContent>
+            </Tooltip>
+          ) : (
+            inner
+          );
+
           return (
             <li
               className={cx(
@@ -333,7 +349,7 @@ export const LogoLoop = React.memo<LogoLoopProps>(
               key={key}
               role="listitem"
             >
-              {inner}
+              {finalContent}
             </li>
           );
         } else {
@@ -379,6 +395,17 @@ export const LogoLoop = React.memo<LogoLoopProps>(
             content
           );
 
+          const finalContent = item.title ? (
+            <Tooltip>
+              <TooltipTrigger asChild>{inner}</TooltipTrigger>
+              <TooltipContent>
+                <p>{item.title}</p>
+              </TooltipContent>
+            </Tooltip>
+          ) : (
+            inner
+          );
+
           return (
             <li
               className={cx(
@@ -388,7 +415,7 @@ export const LogoLoop = React.memo<LogoLoopProps>(
               key={key}
               role="listitem"
             >
-              {inner}
+              {finalContent}
             </li>
           );
         }
