@@ -5,37 +5,13 @@ import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 import { Github, ExternalLink } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 import { FadeInSection } from './fade-in-section';
+import { getProjects, Project } from '@/lib/projects-info';
 
 export function Projects() {
   const { t } = useTranslation();
-
-  const projects = [
-    {
-      title: t('projects.items.felipe.title'),
-      description: t('projects.items.felipe.description'),
-      image: '/images/felipe.webp',
-      link: 'https://github.com/eltatata/Nextjs-langchain-retrievalQA',
-    },
-    {
-      title: t('projects.items.ecommerce.title'),
-      description: t('projects.items.ecommerce.description'),
-      image: '/images/ecommerce.webp',
-      link: 'https://github.com/eltatata/Nodejs-Scalable-Ecommerce',
-    },
-    {
-      title: t('projects.items.reume.title'),
-      description: t('projects.items.reume.description'),
-      image: '/images/reume.webp',
-      link: 'https://github.com/eltatata/Reume-Frontend',
-    },
-    {
-      title: t('projects.items.tasktraker.title'),
-      description: t('projects.items.tasktraker.description'),
-      image: '/images/tasktraker.webp',
-      link: 'https://github.com/eltatata/TASKTRAKER',
-    },
-  ];
+  const projects = getProjects(t);
 
   return (
     <section id="projects" className="py-20 px-6">
@@ -45,7 +21,7 @@ export function Projects() {
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-          {projects.map((project, index) => (
+          {projects.map((project: Project, index: number) => (
             <FadeInSection key={index} delay={index * 0.1}>
               <Card className="backdrop-blur-md bg-card/50 border-border hover:bg-card/70 transition-all duration-300 group">
                 <CardContent className="p-0">
@@ -67,9 +43,24 @@ export function Projects() {
                         <ExternalLink className="h-4 w-4" />
                       </Link>
                     </div>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                       {project.description}
                     </p>
+                    <div className="flex flex-wrap gap-2">
+                      {project.techStack.map((tech, techIndex) => {
+                        const IconComponent = tech.icon;
+                        return (
+                          <Badge
+                            key={techIndex}
+                            variant="secondary"
+                            className="flex items-center gap-1 text-xs"
+                          >
+                            <IconComponent className="h-3 w-3" />
+                            {tech.name}
+                          </Badge>
+                        );
+                      })}
+                    </div>
                   </div>
                 </CardContent>
               </Card>

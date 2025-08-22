@@ -1,0 +1,103 @@
+import { IconType } from 'react-icons';
+import {
+  SiNextdotjs,
+  SiTypescript,
+  SiTailwindcss,
+  SiMongodb,
+  SiNodedotjs,
+  SiExpress,
+  SiDocker,
+  SiPostgresql,
+  SiPrisma,
+  SiJest,
+  SiSwagger,
+  SiBun,
+  SiStripe,
+  SiCloudinary,
+  SiLangchain,
+  SiVercel,
+  SiApachekafka,
+  SiAuth0,
+  SiClerk,
+} from 'react-icons/si';
+import { FaAws } from 'react-icons/fa';
+
+export interface TechStack {
+  name: string;
+  icon: IconType;
+}
+
+export interface Project {
+  title: string;
+  description: string;
+  image: string;
+  link: string;
+  techStack: TechStack[];
+}
+
+export const getProjects = (t: (key: string) => string): Project[] => [
+  {
+    title: t('projects.items.felipe.title'),
+    description: t('projects.items.felipe.description'),
+    image: '/images/felipe.webp',
+    link: 'https://github.com/eltatata/Nextjs-langchain-retrievalQA',
+    techStack: [
+      { name: 'Next.js', icon: SiNextdotjs },
+      { name: 'TypeScript', icon: SiTypescript },
+      { name: 'LangChain', icon: SiLangchain },
+      { name: 'AI SDK', icon: SiVercel },
+      { name: 'MongoDB', icon: SiMongodb },
+      { name: 'Tailwind CSS', icon: SiTailwindcss },
+    ],
+  },
+  {
+    title: t('projects.items.ecommerce.title'),
+    description: t('projects.items.ecommerce.description'),
+    image: '/images/ecommerce.webp',
+    link: 'https://github.com/eltatata/Nodejs-Scalable-Ecommerce',
+    techStack: [
+      { name: 'Node.js', icon: SiNodedotjs },
+      { name: 'Express', icon: SiExpress },
+      { name: 'TypeScript', icon: SiTypescript },
+      { name: 'Kafka', icon: SiApachekafka },
+      { name: 'Docker', icon: SiDocker },
+      { name: 'Stripe', icon: SiStripe },
+      { name: 'MongoDB', icon: SiMongodb },
+      { name: 'Cloudinary', icon: SiCloudinary },
+    ],
+  },
+  {
+    title: t('projects.items.reume.title'),
+    description: t('projects.items.reume.description'),
+    image: '/images/reume.webp',
+    link: 'https://github.com/eltatata/Reume-Frontend',
+    techStack: [
+      { name: 'Bun', icon: SiBun },
+      { name: 'TypeScript', icon: SiTypescript },
+      { name: 'Next.js', icon: SiNextdotjs },
+      { name: 'Auth.js', icon: SiAuth0 },
+      { name: 'Node.js', icon: SiNodedotjs },
+      { name: 'Express', icon: SiExpress },
+      { name: 'Prisma', icon: SiPrisma },
+      { name: 'PostgreSQL', icon: SiPostgresql },
+      { name: 'Jest', icon: SiJest },
+      { name: 'Swagger', icon: SiSwagger },
+      { name: 'AWS', icon: FaAws },
+      { name: 'Tailwind CSS', icon: SiTailwindcss },
+    ],
+  },
+  {
+    title: t('projects.items.tasktraker.title'),
+    description: t('projects.items.tasktraker.description'),
+    image: '/images/tasktraker.webp',
+    link: 'https://github.com/eltatata/TASKTRAKER',
+    techStack: [
+      { name: 'Next.js', icon: SiNextdotjs },
+      { name: 'TypeScript', icon: SiTypescript },
+      { name: 'Tailwind CSS', icon: SiTailwindcss },
+      { name: 'Prisma', icon: SiPrisma },
+      { name: 'MongoDB', icon: SiMongodb },
+      { name: 'Clerk', icon: SiClerk },
+    ],
+  },
+];
