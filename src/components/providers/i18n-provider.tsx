@@ -1,6 +1,6 @@
 'use client';
 
-import '@/lib/i18n';
+import '@/lib/translations/i18n';
 import React, { useEffect } from 'react';
 
 export function I18nProvider({ children }: { children: React.ReactNode }) {
