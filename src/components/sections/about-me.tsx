@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { Github, Linkedin, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import LogoLoop from '@/components/logo-loop';
+import LogoLoop from '@/components/animated/logo-loop';
 import { FadeInSection } from './fade-in-section';
 import { logosInfo } from '@/lib/logos-info';
 

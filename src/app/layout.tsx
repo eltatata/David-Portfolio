@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
-import Particles from '@/components/particles';
+import Particles from '@/components/animated/particles';
 import { ThemeProvider } from '@/components/providers/theme-provider';
 import './globals.css';
 import { I18nProvider } from '@/components/providers/i18n-provider';
