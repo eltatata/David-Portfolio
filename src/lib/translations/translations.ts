@@ -84,6 +84,8 @@ export const translations = {
     },
     contact: {
       title: 'Contact me',
+      description:
+        'If you want to know more about me or talk about new projects, feel free to contact me through any of these channels.',
     },
     footer: {
       copyright: 'Copyright © 2025 David Tabares Seguro. All rights reserved.',
@@ -174,6 +176,8 @@ export const translations = {
     },
     contact: {
       title: 'Contáctame',
+      description:
+        'Si quieres saber más sobre mí o hablar sobre nuevos proyectos, no dudes en contactarme por algunos de estos medios.',
     },
     footer: {
       copyright:

@@ -15,11 +15,7 @@ export function Contact() {
         <div className="backdrop-blur-md bg-card/50 border border-border rounded-2xl p-8">
           <h2 className="text-3xl font-bold mb-8">{t('contact.title')}</h2>
           <div className="space-y-4">
-            <p className="text-muted-foreground">
-              I&apos;m interested in freelance opportunities – especially
-              ambitious or large projects. However, if you have other requests
-              or questions, don&apos;t hesitate to contact me.
-            </p>
+            <p className="text-muted-foreground">{t('contact.description')}</p>
             <div className="flex space-x-4 items-center justify-center text-muted-foreground">
               <div className="flex items-center gap-4">
                 <Link
