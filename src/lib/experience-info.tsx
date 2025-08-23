@@ -1,5 +1,4 @@
 import { TFunction } from 'i18next';
-import { IconType } from 'react-icons';
 import {
   SiNextdotjs,
   SiTypescript,
@@ -20,19 +19,7 @@ import {
 } from 'react-icons/si';
 import { FaCode } from 'react-icons/fa';
 import { VscAzureDevops } from 'react-icons/vsc';
-
-export interface TechStack {
-  name: string;
-  icon: IconType;
-}
-
-export interface Experience {
-  period: string;
-  title: string;
-  company: string;
-  description: string[];
-  techStack: TechStack[];
-}
+import { Experience } from './interfaces';
 
 export const getExperiences = (t: TFunction): Experience[] => [
   {

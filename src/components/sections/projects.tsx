@@ -7,7 +7,7 @@ import { Github, ExternalLink } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { FadeInSection } from './fade-in-section';
-import { getProjects, Project } from '@/lib/projects-info';
+import { getProjects } from '@/lib/projects-info';
 
 export function Projects() {
   const { t } = useTranslation();
@@ -21,7 +21,7 @@ export function Projects() {
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-          {projects.map((project: Project, index: number) => (
+          {projects.map((project, index: number) => (
             <FadeInSection key={index} delay={index * 0.1}>
               <Card className="backdrop-blur-md bg-card/50 border-border hover:bg-card/70 transition-all duration-300 group">
                 <CardContent className="p-0">

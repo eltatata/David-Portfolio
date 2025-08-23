@@ -1,5 +1,4 @@
 import { TFunction } from 'i18next';
-import { IconType } from 'react-icons';
 import {
   SiNextdotjs,
   SiTypescript,
@@ -22,19 +21,7 @@ import {
   SiClerk,
 } from 'react-icons/si';
 import { FaAws } from 'react-icons/fa';
-
-export interface TechStack {
-  name: string;
-  icon: IconType;
-}
-
-export interface Project {
-  title: string;
-  description: string;
-  image: string;
-  link: string;
-  techStack: TechStack[];
-}
+import { Project } from './interfaces';
 
 export const getProjects = (t: TFunction): Project[] => [
   {
