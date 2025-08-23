@@ -3,8 +3,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { AnimatedThemeToggler } from '@/components/animated-theme-toggler';
-import { LanguageSwitcher } from './language-switcher';
+import { AnimatedThemeToggler } from '@/components/navbar/animated-theme-toggler';
+import { LanguageSwitcher } from '@/components/navbar/language-switcher';
 
 export function Navbar() {
   const { t } = useTranslation();

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar } from '@/components/navbar';
+import { Navbar } from '@/components/navbar/navbar';
 import { AboutMe } from '@/components/sections/about-me';
 import { Experience } from '@/components/sections/experience';
 import { Projects } from '@/components/sections/projects';
