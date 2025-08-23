@@ -17,7 +17,8 @@ import {
   SiOpenai,
   SiReact,
 } from 'react-icons/si';
-import { FaCode } from 'react-icons/fa';
+import { FaCode, FaAws } from 'react-icons/fa';
+
 import { VscAzureDevops } from 'react-icons/vsc';
 import { Experience } from '../interfaces';
 
@@ -61,6 +62,7 @@ export const getExperiences = (t: TFunction): Experience[] => [
       { name: 'Git', icon: SiGit },
       { name: 'GitHub', icon: SiGithub },
       { name: 'Inngest', icon: FaCode },
+      { name: 'AWS', icon: FaAws },
     ],
   },
   {
