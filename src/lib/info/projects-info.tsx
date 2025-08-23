@@ -21,7 +21,7 @@ import {
   SiClerk,
 } from 'react-icons/si';
 import { FaAws } from 'react-icons/fa';
-import { Project } from './interfaces';
+import { Project } from '../interfaces';
 
 export const getProjects = (t: TFunction): Project[] => [
   {

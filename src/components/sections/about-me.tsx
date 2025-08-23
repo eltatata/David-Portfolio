@@ -8,7 +8,7 @@ import { Github, Linkedin, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import LogoLoop from '@/components/animated/logo-loop';
 import { FadeInSection } from './fade-in-section';
-import { logosInfo } from '@/lib/logos-info';
+import { logosInfo } from '@/lib/info/logos-info';
 
 export function AboutMe() {
   const { t } = useTranslation();

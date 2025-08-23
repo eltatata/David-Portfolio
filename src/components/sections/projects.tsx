@@ -7,7 +7,7 @@ import { Github, ExternalLink } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { FadeInSection } from './fade-in-section';
-import { getProjects } from '@/lib/projects-info';
+import { getProjects } from '@/lib/info/projects-info';
 
 export function Projects() {
   const { t } = useTranslation();

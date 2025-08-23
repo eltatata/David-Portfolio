@@ -19,7 +19,7 @@ import {
 } from 'react-icons/si';
 import { FaCode } from 'react-icons/fa';
 import { VscAzureDevops } from 'react-icons/vsc';
-import { Experience } from './interfaces';
+import { Experience } from '../interfaces';
 
 export const getExperiences = (t: TFunction): Experience[] => [
   {

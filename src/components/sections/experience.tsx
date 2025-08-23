@@ -4,7 +4,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Badge } from '@/components/ui/badge';
 import { FadeInSection } from './fade-in-section';
-import { getExperiences } from '@/lib/experience-info';
+import { getExperiences } from '@/lib/info/experience-info';
 
 export function Experience() {
   const { t } = useTranslation();
