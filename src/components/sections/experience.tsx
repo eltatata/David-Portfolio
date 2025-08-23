@@ -4,44 +4,11 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Badge } from '@/components/ui/badge';
 import { FadeInSection } from './fade-in-section';
+import { getExperiences } from '@/lib/experience-info';
 
 export function Experience() {
   const { t } = useTranslation();
-
-  const experiences = [
-    {
-      period: t('experience.jobs.job1.period'),
-      title: t('experience.fullStackDeveloper'),
-      company: t('experience.jobs.job1.company'),
-      description: t('experience.jobs.job1.description', {
-        returnObjects: true,
-      }) as string[],
-    },
-    {
-      period: t('experience.jobs.job2.period'),
-      title: t('experience.nodeJSDeveloper'),
-      company: t('experience.jobs.job2.company'),
-      description: t('experience.jobs.job2.description', {
-        returnObjects: true,
-      }) as string[],
-    },
-    {
-      period: t('experience.jobs.job3.period'),
-      title: t('experience.fullStackDeveloper'),
-      company: t('experience.jobs.job3.company'),
-      description: t('experience.jobs.job3.description', {
-        returnObjects: true,
-      }) as string[],
-    },
-    {
-      period: t('experience.jobs.job4.period'),
-      title: t('experience.fullStackDeveloper'),
-      company: t('experience.jobs.job4.company'),
-      description: t('experience.jobs.job4.description', {
-        returnObjects: true,
-      }) as string[],
-    },
-  ];
+  const experiences = getExperiences(t);
 
   return (
     <section id="experience" className="py-20 px-6">
@@ -73,6 +40,19 @@ export function Experience() {
                     <li key={i}>{line}</li>
                   ))}
                 </ul>
+
+                <div className="flex flex-wrap gap-2 mt-4">
+                  {item.techStack.map((tech, i) => (
+                    <Badge
+                      key={i}
+                      variant="secondary"
+                      className="flex items-center gap-1 text-xs"
+                    >
+                      <tech.icon className="w-3 h-3" />
+                      {tech.name}
+                    </Badge>
+                  ))}
+                </div>
               </div>
             </FadeInSection>
           ))}
