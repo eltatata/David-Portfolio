@@ -3,9 +3,11 @@ import {
   SiGit,
   SiJest,
   SiReact,
+  SiNestjs,
   SiDocker,
   SiPrisma,
   SiVercel,
+  SiExpress,
   SiMongodb,
   SiLangchain,
   SiNextdotjs,
@@ -21,6 +23,16 @@ export const logosInfo = [
     node: <SiNodedotjs />,
     title: 'Node.js',
     href: 'https://nodejs.org',
+  },
+  {
+    node: <SiExpress />,
+    title: 'Express',
+    href: 'https://expressjs.com',
+  },
+  {
+    node: <SiNestjs />,
+    title: 'NestJS',
+    href: 'https://nestjs.com',
   },
   {
     node: <SiTypescript />,
