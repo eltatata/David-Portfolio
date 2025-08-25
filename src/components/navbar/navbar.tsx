@@ -3,6 +3,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { Bot } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { ShineBorder } from '@/components/animated/shine-border';
 import { AnimatedThemeToggler } from '@/components/navbar/animated-theme-toggler';
 import { LanguageSwitcher } from '@/components/navbar/language-switcher';
 
@@ -42,6 +45,19 @@ export function Navbar() {
             ))}
           </div>
           <div className="flex items-center space-x-2">
+            <Button
+              variant="outline"
+              size="sm"
+              className="relative flex items-center cursor-pointer"
+            >
+              <Bot className="h-4 w-4" />
+              <span>David AI</span>
+              <ShineBorder
+                shineColor={['#00FF00']}
+                borderWidth={3}
+                duration={5}
+              />
+            </Button>
             <LanguageSwitcher />
             <AnimatedThemeToggler className="cursor-pointer" />
           </div>
