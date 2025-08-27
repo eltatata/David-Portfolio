@@ -23,7 +23,7 @@ export function Projects() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
           {projects.map((project, index: number) => (
             <FadeInSection key={index} delay={index * 0.1}>
-              <Card className="backdrop-blur-md bg-card/50 border-border hover:bg-card/70 transition-all duration-300 group">
+              <Card className="backdrop-blur-md bg-card/50 border-border hover:bg-card/70 transition-all duration-300 group h-full">
                 <CardContent className="p-0">
                   <div className="aspect-video bg-muted rounded-t-lg overflow-hidden">
                     <img
