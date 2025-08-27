@@ -66,19 +66,23 @@ export const translations = {
       items: {
         felipe: {
           title: 'Felipe',
-          description: 'An AI data structure assistant.',
+          description:
+            'An AI data structure assistant. It is a RAG whose purpose is only to answer questions related to the information with which it was trained.',
         },
         ecommerce: {
           title: 'E-commerce - Microservices',
-          description: 'E-commerce with microservices architecture.',
+          description:
+            'E-commerce with microservices architecture. This project explored robust architecture, event handling, and software development with best practices.',
         },
         reume: {
           title: 'Reume',
-          description: 'Scheduling app with calendar integration.',
+          description:
+            'Scheduling app with calendar integration. In this project, I explored best practices in CI/CD, AWS, software development and user management.',
         },
         tasktraker: {
           title: 'Tasktraker',
-          description: 'Task tracking platform.',
+          description:
+            'Task tracking platform. Built with a dynamic interface, user management with Clerk, and task management using the NextJS API (App router).',
         },
       },
     },
@@ -165,19 +169,23 @@ export const translations = {
       items: {
         felipe: {
           title: 'Felipe',
-          description: 'Un asistente de estructuras de datos con IA.',
+          description:
+            'Un asistente de estructuras de datos con IA. Es un RAG cuyo propósito es solo responder preguntas relacionadas con la información con la que fue entrenado.',
         },
         ecommerce: {
           title: 'E-commerce - Microservicios',
-          description: 'E-commerce con arquitectura de microservicios.',
+          description:
+            'E-commerce con arquitectura de microservicios. En este proyecto se exploró una arquitectura robusta, manejo de eventos y desarrollo de software con mejores prácticas.',
         },
         reume: {
           title: 'Reume',
-          description: 'Aplicación de agenda con integración de calendario.',
+          description:
+            'Aplicación de agenda con integración de calendario. En este proyecto, exploré mejores prácticas en CI/CD, AWS, desarrollo de software y gestión de usuarios.',
         },
         tasktraker: {
           title: 'Tasktraker',
-          description: 'Plataforma de seguimiento de tareas.',
+          description:
+            'Plataforma de seguimiento de tareas. Construida con una interfaz dinámica, gestión de usuarios con Clerk y gestión de tareas utilizando la API de NextJS (App router).',
         },
       },
     },
