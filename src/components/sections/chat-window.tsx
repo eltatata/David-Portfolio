@@ -2,20 +2,14 @@
 
 import type React from 'react';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { useChat } from '@ai-sdk/react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { X, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { ScrollArea } from '@/components/ui/scroll-area';
-
-interface Message {
-  id: string;
-  text: string;
-  sender: 'user' | 'david';
-  timestamp: Date;
-}
 
 interface ChatWindowProps {
   isOpen: boolean;
@@ -24,49 +18,23 @@ interface ChatWindowProps {
 
 export function ChatWindow({ isOpen, onClose }: ChatWindowProps) {
   const { t } = useTranslation();
-  const [messages, setMessages] = useState<Message[]>([]);
-  const [inputValue, setInputValue] = useState('');
+  const [input, setInput] = useState('');
+  const { messages, sendMessage, status } = useChat();
+  const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    setMessages([
-      {
-        id: '1',
-        text: t('chat.welcomeMessage'),
-        sender: 'david',
-        timestamp: new Date(),
-      },
-    ]);
-  }, [t]);
-
-  const handleSendMessage = () => {
-    if (!inputValue.trim()) return;
-
-    const newMessage: Message = {
-      id: Date.now().toString(),
-      text: inputValue,
-      sender: 'user',
-      timestamp: new Date(),
-    };
-
-    setMessages((prev) => [...prev, newMessage]);
-    setInputValue('');
-
-    // Simulate David AI response
-    setTimeout(() => {
-      const response: Message = {
-        id: (Date.now() + 1).toString(),
-        text: t('chat.autoResponse'),
-        sender: 'david',
-        timestamp: new Date(),
-      };
-      setMessages((prev) => [...prev, response]);
-    }, 1000);
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const handleKeyPress = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter') {
-      handleSendMessage();
-    }
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages, status]);
+
+  const handleSendMessage = () => {
+    if (!input.trim()) return;
+    if (status === 'submitted' || status === 'streaming') return;
+    sendMessage({ text: input });
+    setInput('');
   };
 
   return (
@@ -93,39 +61,74 @@ export function ChatWindow({ isOpen, onClose }: ChatWindowProps) {
 
           <ScrollArea className="flex-1 p-4 h-64">
             <div className="space-y-3">
+              <div className="max-w-[70%] p-2 rounded-lg text-sm bg-muted text-muted-foreground">
+                {t('chat.welcomeMessage')}
+              </div>
+
               {messages.map((message) => (
                 <div
                   key={message.id}
-                  className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
+                  className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
                 >
-                  <div
-                    className={`max-w-[70%] p-2 rounded-lg text-sm ${
-                      message.sender === 'user'
-                        ? 'bg-primary text-primary-foreground'
-                        : 'bg-muted text-muted-foreground'
-                    }`}
-                  >
-                    {message.text}
-                  </div>
+                  {message.parts.map((part, i) => {
+                    switch (part.type) {
+                      case 'text':
+                        return (
+                          <div
+                            key={`${message.id}-${i}`}
+                            className={`max-w-[70%] p-2 rounded-lg text-sm ${
+                              message.role === 'user'
+                                ? 'bg-primary text-primary-foreground'
+                                : 'bg-muted text-muted-foreground'
+                            }`}
+                          >
+                            {part.text}
+                          </div>
+                        );
+                    }
+                  })}
                 </div>
               ))}
+
+              {(status === 'submitted' || status === 'streaming') && (
+                <div className="flex justify-start">
+                  <div className="max-w-[70%] p-2 rounded-lg text-sm bg-muted text-muted-foreground">
+                    <div className="flex items-center justify-center">
+                      <div className="flex space-x-1">
+                        <div className="w-1 h-1 bg-current rounded-full animate-bounce [animation-delay:-0.3s]"></div>
+                        <div className="w-1 h-1 bg-current rounded-full animate-bounce [animation-delay:-0.15s]"></div>
+                        <div className="w-1 h-1 bg-current rounded-full animate-bounce"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              <div ref={messagesEndRef} />
             </div>
           </ScrollArea>
 
-          <div className="p-4 border-t border-border">
-            <div className="flex space-x-2">
-              <Input
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
-                onKeyPress={handleKeyPress}
-                placeholder={t('chat.placeholder')}
-                className="flex-1"
-              />
-              <Button onClick={handleSendMessage} size="sm">
-                <Send className="h-4 w-4" />
-              </Button>
-            </div>
-          </div>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              handleSendMessage();
+            }}
+            className="flex space-x-2 p-4 border-t border-border"
+          >
+            <Input
+              value={input}
+              placeholder={t('chat.placeholder')}
+              onChange={(e) => setInput(e.currentTarget.value)}
+              className="flex-1"
+            />
+            <Button
+              type="submit"
+              size="sm"
+              disabled={status === 'submitted' || status === 'streaming'}
+            >
+              <Send className="h-4 w-4" />
+            </Button>
+          </form>
         </motion.div>
       )}
     </AnimatePresence>

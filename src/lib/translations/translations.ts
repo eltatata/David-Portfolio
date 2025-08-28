@@ -97,8 +97,6 @@ export const translations = {
     chat: {
       welcomeMessage:
         "Hi! I'm David. Feel free to ask me anything about my work or experience.",
-      autoResponse:
-        "Thanks for your message! I'll get back to you soon. In the meantime, feel free to explore my portfolio.",
       placeholder: 'Type your message...',
     },
   },
@@ -201,8 +199,6 @@ export const translations = {
     chat: {
       welcomeMessage:
         '¡Hola! Soy David. Siéntete libre de preguntarme cualquier cosa sobre mi trabajo o experiencia.',
-      autoResponse:
-        '¡Gracias por tu mensaje! Te responderé pronto. Mientras tanto, siéntete libre de explorar mi portafolio.',
       placeholder: 'Escribe tu mensaje...',
     },
   },
