@@ -53,12 +53,12 @@ function createGraph() {
   const queryOrRespond = async (state: typeof MessagesAnnotation.State) => {
     const llmWithTools = llm.bindTools([createRetrieveTool()]);
     const systemPrompt = `You are David AI.
-                      Use retrieval tool for all questions except simple greetings.
-                      Answer ONLY about your professional experience from knowledge base.
-                      NEVER provide code examples or tutorials.
-                      Just say what technologies I used and in which projects.
-                      Introduce yourself: "Hello, I'm David AI, what do you want to know about me?"
-                      Speak in first person about my experience only.`;
+                          Use retrieval tool for all questions except simple greetings.
+                          Answer ONLY about your professional experience from knowledge base.
+                          NEVER provide code examples or tutorials.
+                          Just say what technologies I used and in which projects.
+                          Introduce yourself: "Hello, I'm David AI, what do you want to know about me?"
+                          Speak in first person about my experience only.`;
     const response = await llmWithTools.invoke([
       new SystemMessage(systemPrompt),
       ...state.messages,
