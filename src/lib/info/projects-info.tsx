@@ -28,7 +28,8 @@ export const getProjects = (t: TFunction): Project[] => [
     title: t('projects.items.felipe.title'),
     description: t('projects.items.felipe.description'),
     image: '/images/felipe.webp',
-    link: 'https://github.com/eltatata/Nextjs-langchain-retrievalQA',
+    link: 'https://nextjs-langchain-retrieval-qa.vercel.app/',
+    github: 'https://github.com/eltatata/Nextjs-langchain-retrievalQA',
     techStack: [
       { name: 'Next.js', icon: SiNextdotjs },
       { name: 'TypeScript', icon: SiTypescript },
@@ -42,7 +43,7 @@ export const getProjects = (t: TFunction): Project[] => [
     title: t('projects.items.ecommerce.title'),
     description: t('projects.items.ecommerce.description'),
     image: '/images/ecommerce.webp',
-    link: 'https://github.com/eltatata/Nodejs-Scalable-Ecommerce',
+    github: 'https://github.com/eltatata/Nodejs-Scalable-Ecommerce',
     techStack: [
       { name: 'Node.js', icon: SiNodedotjs },
       { name: 'Express', icon: SiExpress },
@@ -58,7 +59,8 @@ export const getProjects = (t: TFunction): Project[] => [
     title: t('projects.items.reume.title'),
     description: t('projects.items.reume.description'),
     image: '/images/reume.webp',
-    link: 'https://github.com/eltatata/Reume-Frontend',
+    link: 'https://reume-frontend.vercel.app',
+    github: 'https://github.com/eltatata/Reume-Frontend',
     techStack: [
       { name: 'Bun', icon: SiBun },
       { name: 'TypeScript', icon: SiTypescript },
@@ -78,7 +80,8 @@ export const getProjects = (t: TFunction): Project[] => [
     title: t('projects.items.tasktraker.title'),
     description: t('projects.items.tasktraker.description'),
     image: '/images/tasktraker.webp',
-    link: 'https://github.com/eltatata/TASKTRAKER',
+    link: 'https://tasktraker-ten.vercel.app',
+    github: 'https://github.com/eltatata/TASKTRAKER',
     techStack: [
       { name: 'Next.js', icon: SiNextdotjs },
       { name: 'TypeScript', icon: SiTypescript },

@@ -35,13 +35,26 @@ export function Projects() {
                   <div className="p-6">
                     <div className="flex items-center justify-between mb-2">
                       <h3 className="text-lg font-semibold">{project.title}</h3>
-                      <Link
-                        className="opacity-0 group-hover:opacity-100 transition-opacity p-2 rounded-md hover:bg-muted"
-                        href={project.link}
-                        target="_blank"
-                      >
-                        <ExternalLink className="h-4 w-4" />
-                      </Link>
+                      <div className="flex items-center gap-2">
+                        {project.link && (
+                          <Link
+                            className="p-2 rounded-md border bg-muted hover:bg-muted"
+                            href={project.link}
+                            target="_blank"
+                            aria-label="Ver aplicación en vivo"
+                          >
+                            <ExternalLink className="h-4 w-4" />
+                          </Link>
+                        )}
+                        <Link
+                          className="p-2 rounded-md border bg-muted hover:bg-muted"
+                          href={project.github}
+                          target="_blank"
+                          aria-label="Ver código en GitHub"
+                        >
+                          <Github className="h-4 w-4" />
+                        </Link>
+                      </div>
                     </div>
                     <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                       {project.description}
