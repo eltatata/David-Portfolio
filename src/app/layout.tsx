@@ -2,6 +2,7 @@ import React from 'react';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import Particles from '@/components/animated/particles';
 import { ThemeProvider } from '@/components/providers/theme-provider';
 import './globals.css';
@@ -43,6 +44,7 @@ export default function RootLayout({
             <I18nProvider>
               {children}
               <Analytics />
+              <SpeedInsights />
             </I18nProvider>
           </ThemeProvider>
         </div>
