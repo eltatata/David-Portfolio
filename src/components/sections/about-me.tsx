@@ -16,10 +16,10 @@ export function AboutMe() {
   return (
     <section
       id="about-me"
-      className="min-h-screen flex items-center justify-center px-6 pt-20"
+      className="min-h-screen flex items-center justify-center px-4 sm:px-6 pt-16 sm:pt-20 pb-8"
     >
-      <FadeInSection className="max-w-4xl mx-auto text-center">
-        <div className="backdrop-blur-md bg-card/50 border border-border rounded-2xl p-8 md:p-12">
+      <FadeInSection className="max-w-4xl mx-auto text-center w-full">
+        <div className="backdrop-blur-md bg-card/50 border border-border rounded-2xl p-6 sm:p-8 md:p-12">
           <motion.h1
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
