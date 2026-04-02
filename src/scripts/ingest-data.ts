@@ -2,9 +2,22 @@ import { MongoDBAtlasVectorSearch } from '@langchain/mongodb';
 import { OpenAIEmbeddings } from '@langchain/openai';
 import { MongoClient } from 'mongodb';
 import { PDFLoader } from '@langchain/community/document_loaders/fs/pdf';
-import { CharacterTextSplitter } from '@langchain/textsplitters';
+import { RecursiveCharacterTextSplitter } from '@langchain/textsplitters';
 
 const embeddings = new OpenAIEmbeddings();
+
+function cleanText(text: string): string {
+  return text
+    .replace(/[•●◦▪▸–—]/g, '-')
+    .replace(/[^\x20-\x7E\n\táéíóúüñÁÉÍÓÚÜÑ]/g, ' ')
+    .replace(/ {2,}/g, ' ')
+    .split('\n')
+    .map((line) => line.trim())
+    .filter((line) => line.length > 2)
+    .join('\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
 
 (async () => {
   if (
@@ -25,19 +38,17 @@ const embeddings = new OpenAIEmbeddings();
   const loader = new PDFLoader('./src/docs/david-resume.pdf');
   const doc = await loader.load();
 
-  let text = '';
-  doc.forEach((page) => {
-    text += page.pageContent;
-  });
+  const rawText = doc.map((page) => page.pageContent).join('\n');
+  const cleanedText = cleanText(rawText);
 
-  const splitter = new CharacterTextSplitter({
-    separator: '\n',
+  const splitter = new RecursiveCharacterTextSplitter({
     chunkSize: 800,
-    chunkOverlap: 200,
+    chunkOverlap: 150,
+    separators: ['\n\n', '\n', '. ', ' '],
   });
 
-  const docs = await splitter.createDocuments([text]);
-  console.log(`Cantidad de documentos creados: ${docs.length}`);
+  const docs = await splitter.createDocuments([cleanedText]);
+  console.log(`Documents created: ${docs.length}`);
 
   await MongoDBAtlasVectorSearch.fromDocuments(docs, embeddings, {
     collection,
@@ -45,6 +56,5 @@ const embeddings = new OpenAIEmbeddings();
     textKey: 'text',
     embeddingKey: 'embedding',
   });
-
   await client.close();
 })();
