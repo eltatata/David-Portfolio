@@ -3,7 +3,8 @@
 import React from 'react';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
-import { Github, ExternalLink } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
+import { SiGithub } from 'react-icons/si';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { FadeInSection } from './fade-in-section';
@@ -52,7 +53,7 @@ export function Projects() {
                           target="_blank"
                           aria-label="Ver código en GitHub"
                         >
-                          <Github className="h-4 w-4" />
+                          <SiGithub className="h-4 w-4" />
                         </Link>
                       </div>
                     </div>
@@ -87,7 +88,7 @@ export function Projects() {
             href="https://github.com/eltatata"
             target="_blank"
           >
-            <Github className="mr-2 h-4 w-4" />
+            <SiGithub className="mr-2 h-4 w-4" />
             {t('projects.viewProject')}
           </Link>
         </FadeInSection>

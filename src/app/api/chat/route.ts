@@ -130,7 +130,7 @@ export async function POST(req: NextRequest) {
   try {
     const { id: sessionId, messages }: { id: string; messages: UIMessage[] } =
       await req.json();
-    const messagesConverted = convertToModelMessages(messages);
+    const messagesConverted = await convertToModelMessages(messages);
     const messagesMapped = messagesConverted.map((msg: ModelMessage) => {
       return {
         role: msg.role as 'user',

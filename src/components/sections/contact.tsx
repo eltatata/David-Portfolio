@@ -3,7 +3,9 @@
 import React from 'react';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { Mail } from 'lucide-react';
+import { SiGithub } from 'react-icons/si';
+import { FaLinkedinIn } from 'react-icons/fa';
 import { FadeInSection } from './fade-in-section';
 
 export function Contact() {
@@ -29,10 +31,10 @@ export function Contact() {
                   href="https://www.linkedin.com/in/david-tabares-seguro/"
                   target="_blank"
                 >
-                  <Linkedin className="h-6 w-6" />
+                  <FaLinkedinIn className="h-6 w-6" />
                 </Link>
                 <Link href="https://github.com/eltatata" target="_blank">
-                  <Github className="h-6 w-6" />
+                  <SiGithub className="h-6 w-6" />
                 </Link>
               </div>
             </div>

@@ -4,7 +4,9 @@ import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { Github, Linkedin, Download } from 'lucide-react';
+import { Download } from 'lucide-react';
+import { SiGithub } from 'react-icons/si';
+import { FaLinkedinIn } from 'react-icons/fa';
 import { Button } from '@/components/ui/button';
 import LogoLoop from '@/components/animated/logo-loop';
 import { FadeInSection } from './fade-in-section';
@@ -49,14 +51,14 @@ export function AboutMe() {
               href="https://www.linkedin.com/in/david-tabares-seguro/"
               target="_blank"
             >
-              <Linkedin className="h-5 w-5" />
+              <FaLinkedinIn className="h-5 w-5" />
             </Link>
             <Link
               className="border border-border rounded-md p-2 bg-muted/50 hover:bg-muted transition-colors"
               href="https://github.com/eltatata"
               target="_blank"
             >
-              <Github className="h-5 w-5" />
+              <SiGithub className="h-5 w-5" />
             </Link>
           </motion.div>
 
