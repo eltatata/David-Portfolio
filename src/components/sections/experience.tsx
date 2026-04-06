@@ -15,15 +15,7 @@ export function Experience() {
     <section id="experience" className="py-24 px-6">
       <FadeInSection className="max-w-4xl mx-auto">
         <div className="text-center mb-16">
-          <motion.span
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="inline-block text-sm font-medium text-primary mb-3"
-          >
-            {t('experience.title')}
-          </motion.span>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+<h2 className="text-3xl md:text-4xl font-bold tracking-tight">
             {t('experience.title')}
           </h2>
         </div>

@@ -34,14 +34,6 @@ export function Contact() {
     <section id="contact" className="py-24 px-6">
       <FadeInSection className="max-w-2xl mx-auto text-center">
         <div className="backdrop-blur-xl bg-card/60 border border-border/60 rounded-3xl p-10">
-          <motion.span
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="inline-block text-sm font-medium text-primary mb-3"
-          >
-            {t('contact.title')}
-          </motion.span>
           <h2 className="text-3xl md:text-4xl font-bold mb-6 tracking-tight">
             {t('contact.title')}
           </h2>

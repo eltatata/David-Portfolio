@@ -19,15 +19,7 @@ export function Projects() {
     <section id="projects" className="py-24 px-6">
       <FadeInSection className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <motion.span
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="inline-block text-sm font-medium text-primary mb-3"
-          >
-            {t('projects.title')}
-          </motion.span>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+<h2 className="text-3xl md:text-4xl font-bold tracking-tight">
             {t('projects.title')}
           </h2>
         </div>
