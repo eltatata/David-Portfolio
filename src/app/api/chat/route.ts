@@ -1,10 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { convertToModelMessages, ModelMessage, UIMessage } from 'ai';
+import { UIMessage } from 'ai';
 import { toUIMessageStream } from '@ai-sdk/langchain';
 import { createUIMessageStreamResponse } from 'ai';
 import { z } from 'zod';
 import { MemorySaver } from '@langchain/langgraph';
 import { createAgent, tool } from 'langchain';
+import { ChatOpenAI } from '@langchain/openai';
 import { vectorStore } from '@/database/db-connection';
 import type { DocumentInterface } from '@langchain/core/documents';
 
@@ -50,7 +51,7 @@ const retrieve = tool(
 const checkpointer = new MemorySaver();
 
 const agent = createAgent({
-  model: 'openai:gpt-4o',
+  model: new ChatOpenAI({ model: 'gpt-4o' }),
   tools: [retrieve],
   systemPrompt: SYSTEM_PROMPT,
   checkpointer,
@@ -60,16 +61,14 @@ export async function POST(req: NextRequest) {
   try {
     const { id: sessionId, messages }: { id: string; messages: UIMessage[] } =
       await req.json();
-    const messagesConverted = await convertToModelMessages(messages);
-    const messagesMapped = messagesConverted.map((msg: ModelMessage) => {
-      return {
-        role: msg.role as 'user',
-        content: (msg.content[0] as { type: string; text: string }).text,
-      };
-    });
+    const lastMessage = messages[messages.length - 1];
+    const lastMessageText =
+      lastMessage.parts.find(
+        (p): p is { type: 'text'; text: string } => p.type === 'text',
+      )?.text ?? '';
 
     const stream = agent.streamEvents(
-      { messages: messagesMapped },
+      { messages: [{ role: 'user', content: lastMessageText }] },
       {
         configurable: { thread_id: sessionId },
         version: 'v2',
