@@ -52,17 +52,17 @@ export function Navbar() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-background/80 border-b border-border"
+        className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-background/70 border-b border-border/50"
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
           <div className="flex justify-between items-center">
             {/* Desktop Navigation */}
-            <div className="hidden md:flex justify-center space-x-6 lg:space-x-8 flex-1">
+            <div className="hidden md:flex justify-center space-x-8 flex-1">
               {navItems.map((item) => (
                 <button
                   key={item.key}
                   onClick={(e) => scrollToSection(item.id, e)}
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200 cursor-pointer relative after:absolute after:bottom-[-2px] after:left-0 after:w-0 after:h-[2px] after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
                 >
                   {t(`nav.${item.key}`)}
                 </button>
@@ -72,7 +72,7 @@ export function Navbar() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 rounded-md hover:bg-muted/50 transition-colors"
+              className="md:hidden p-2 rounded-xl hover:bg-muted/50 transition-colors"
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? (
@@ -88,7 +88,7 @@ export function Navbar() {
                 onClick={() => setIsChatOpen(true)}
                 variant="outline"
                 size="sm"
-                className="relative flex items-center cursor-pointer"
+                className="relative flex items-center cursor-pointer rounded-xl border-border/60"
               >
                 <Bot className="h-4 w-4" />
                 <span className="hidden sm:inline ml-1.5">David AI</span>
@@ -112,17 +112,17 @@ export function Navbar() {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.2 }}
-              className="md:hidden overflow-hidden border-t border-border bg-background/95 backdrop-blur-md"
+              className="md:hidden overflow-hidden border-t border-border/50 bg-background/95 backdrop-blur-xl"
             >
-              <div className="px-4 py-4 space-y-2">
+              <div className="px-4 py-4 space-y-1">
                 {navItems.map((item, index) => (
                   <motion.button
                     key={item.key}
                     onClick={(e) => scrollToSection(item.id, e)}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    className="w-full text-left px-4 py-3 rounded-md text-base font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
+                    transition={{ delay: index * 0.08 }}
+                    className="w-full text-left px-4 py-3 rounded-xl text-base font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
                     type="button"
                   >
                     {t(`nav.${item.key}`)}
