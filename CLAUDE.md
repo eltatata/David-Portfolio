@@ -41,8 +41,12 @@ Skills live in `.agents/skills/` (symlinked from `.claude/skills/`). Invoke with
 | Skill | Use when… |
 |---|---|
 | `/ai-sdk` | Working with `useChat`, `streamText`, `generateText`, tool calling, embeddings, or AI SDK streaming patterns |
+| `/commit` | You need to create commits with clear, granular history (saving progress, preparing PR-ready commits, or enforcing conventional commit style) |
+| `/emil-design-eng` | Polishing UI details, interaction feel, visual hierarchy, motion, and overall product craftsmanship |
+| `/langchain-fundamentals` | Building or updating LangChain agents/tools/middleware (agent orchestration, tool definitions, HITL/error-handling middleware) |
 | `/langchain-rag` | Modifying the RAG pipeline: document loaders, text splitters, vector stores, LangChain retrievers |
 | `/next-best-practices` | Writing/reviewing Next.js code: RSC vs client boundaries, route handlers, metadata, image/font optimization |
+| `/streamdown` | Implementing or customizing Streamdown for markdown streaming, syntax highlighting, Mermaid/math rendering, security, and chat UI integration |
 | `/ui-ux-pro-max` | Making design decisions: layout, color, typography, spacing, animations, component visual design |
 | `/vercel-composition-patterns` | Refactoring components: compound components, render props, avoiding boolean-prop proliferation |
 | `/web-design-guidelines` | Auditing UI for accessibility, UX best practices, or design compliance |
