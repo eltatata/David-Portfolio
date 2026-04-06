@@ -12,8 +12,8 @@ if (
   );
 }
 
-const client = new MongoClient(process.env.MONGODB_ATLAS_URI);
-const collection = client
+export const client = new MongoClient(process.env.MONGODB_ATLAS_URI);
+export const collection = client
   .db(process.env.DATABASE_NAME)
   .collection(process.env.COLLECTION_NAME || 'data');
 
