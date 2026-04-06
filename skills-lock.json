@@ -6,6 +6,11 @@
       "sourceType": "github",
       "computedHash": "41d91eb9151ce967ee7b27d62d560cd48131af438d5cfb667b24eeed46bce25d"
     },
+    "emil-design-eng": {
+      "source": "emilkowalski/skill",
+      "sourceType": "github",
+      "computedHash": "8bdf9e4e6de7a4969147bf4828a4ad2c5aacd9fba4b690b250a85e0467ca387d"
+    },
     "langchain-rag": {
       "source": "langchain-ai/langchain-skills",
       "sourceType": "github",
