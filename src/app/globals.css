@@ -1,5 +1,5 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -44,14 +44,14 @@
   --animate-shine: shine var(--duration) infinite linear;
 
   @keyframes shine {
-  0% {
-    background-position: 0% 0%;
+    0% {
+      background-position: 0% 0%;
     }
-  50% {
-    background-position: 100% 100%;
+    50% {
+      background-position: 100% 100%;
     }
-  to {
-    background-position: 0% 0%;
+    to {
+      background-position: 0% 0%;
     }
   }
 }
@@ -134,9 +134,10 @@
   }
 }
 
-::view-transition-old(root), ::view-transition-new(root) {
-    animation: none;
-    mix-blend-mode: normal;
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
 }
 
 /* Streamdown chat overrides */
@@ -157,7 +158,8 @@
   margin-bottom: 0;
 }
 
-.streamdown-chat ul, .streamdown-chat ol {
+.streamdown-chat ul,
+.streamdown-chat ol {
   margin: 0.25rem 0;
   padding-left: 1.25rem;
 }

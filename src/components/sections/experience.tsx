@@ -42,18 +42,29 @@ export function Experience() {
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 + 0.2, type: 'spring', stiffness: 300 }}
+                transition={{
+                  delay: index * 0.1 + 0.2,
+                  type: 'spring',
+                  stiffness: 300,
+                }}
                 className="absolute left-[24px] w-[15px] h-[15px] bg-primary rounded-full border-[3px] border-background shadow-sm shadow-primary/30 z-10"
               />
               <div className="w-full ml-16 backdrop-blur-xl bg-card/60 border border-border/60 rounded-2xl p-6 hover:bg-card/80 transition-colors duration-300">
                 <div className="flex flex-wrap items-center gap-2 mb-3">
-                  <Badge variant="secondary" className="text-xs font-medium rounded-lg">
+                  <Badge
+                    variant="secondary"
+                    className="text-xs font-medium rounded-lg"
+                  >
                     {item.period}
                   </Badge>
                   <span className="text-xs text-muted-foreground">•</span>
-                  <span className="text-sm text-muted-foreground">{item.company}</span>
+                  <span className="text-sm text-muted-foreground">
+                    {item.company}
+                  </span>
                 </div>
-                <h3 className="text-lg font-semibold mb-3 tracking-tight">{item.title}</h3>
+                <h3 className="text-lg font-semibold mb-3 tracking-tight">
+                  {item.title}
+                </h3>
 
                 <ul className="space-y-1.5 text-sm text-muted-foreground leading-relaxed mb-4">
                   {item.description.map((line, i) => (
