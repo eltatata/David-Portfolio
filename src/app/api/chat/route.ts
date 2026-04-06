@@ -21,7 +21,11 @@ SCOPE — STRICT:
 - You ONLY answer questions related to your professional experience: work history, companies, roles, technologies, skills, education, and languages spoken.
 - For ANY question outside this scope (current time, general knowledge, coding tutorials, politics, cooking, personal advice, etc.), respond clearly that you can only share information about your professional profile. Decline politely without redirecting creatively.
 
-RETRIEVAL: Always use the retrieval tool for any question about your experience, skills, companies, technologies, education, or languages. Only skip the tool for pure greetings.
+RETRIEVAL — CRITICAL:
+- You will receive retrieved context from your resume/CV with each message. ALWAYS base your answers on this retrieved context.
+- NEVER answer from memory of previous messages alone. The retrieved context is your source of truth.
+- If the retrieved context does not contain information about something, say you don't have that information rather than making it up.
+- You may ALSO use the retrieve tool to search for additional specific information if the pre-loaded context is insufficient.
 
 TONE: Natural, warm, and professional — as if you were David speaking directly to someone visiting your portfolio.
 
@@ -31,7 +35,7 @@ const retrieveSchema = z.object({ query: z.string() });
 
 const retrieve = tool(
   async ({ query }) => {
-    const retrievedDocs = await vectorStore.similaritySearch(query, 6);
+    const retrievedDocs = await vectorStore.similaritySearch(query, 12);
     const serialized = retrievedDocs
       .map(
         (doc: DocumentInterface<Record<string, unknown>>) =>
@@ -42,7 +46,8 @@ const retrieve = tool(
   },
   {
     name: 'retrieve',
-    description: 'Retrieve information related to a query.',
+    description:
+      'Search the resume/CV for specific information. Use this to find details about specific companies, roles, technologies, skills, or education.',
     schema: retrieveSchema,
     responseFormat: 'content_and_artifact',
   },
@@ -57,6 +62,17 @@ const agent = createAgent({
   checkpointer,
 });
 
+async function preRetrieve(query: string): Promise<string> {
+  const docs = await vectorStore.similaritySearch(query, 12);
+  if (docs.length === 0) return '';
+  return docs
+    .map(
+      (doc: DocumentInterface<Record<string, unknown>>) =>
+        `Section: ${doc.metadata.section ?? 'General'}\nContent: ${doc.pageContent}`,
+    )
+    .join('\n\n---\n\n');
+}
+
 export async function POST(req: NextRequest) {
   try {
     const { id: sessionId, messages }: { id: string; messages: UIMessage[] } =
@@ -67,8 +83,21 @@ export async function POST(req: NextRequest) {
         (p): p is { type: 'text'; text: string } => p.type === 'text',
       )?.text ?? '';
 
+    const isGreeting =
+      /^(hola|hey|hi|hello|buenos días|buenas|qué tal|how are you|what's up)\s*[!?.,]*$/i.test(
+        lastMessageText.trim(),
+      );
+
+    let userContent = lastMessageText;
+    if (!isGreeting) {
+      const context = await preRetrieve(lastMessageText);
+      if (context) {
+        userContent = `[Retrieved context from resume — base your answer on this]\n\n${context}\n\n---\n\n[User question]: ${lastMessageText}`;
+      }
+    }
+
     const stream = agent.streamEvents(
-      { messages: [{ role: 'user', content: lastMessageText }] },
+      { messages: [{ role: 'user', content: userContent }] },
       {
         configurable: { thread_id: sessionId },
         version: 'v2',
