@@ -11,7 +11,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { X, Send, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { ScrollArea } from '@/components/ui/scroll-area';
 
 interface ChatWindowProps {
   isOpen: boolean;
@@ -74,7 +73,7 @@ export function ChatWindow({ isOpen, onClose }: ChatWindowProps) {
           </div>
 
           {/* Messages */}
-          <ScrollArea className="flex-1 px-4 py-3">
+          <div className="chat-scroll flex-1 overflow-y-auto px-4 py-3 min-h-0">
             <div className="space-y-3">
               {/* Welcome message */}
               <div className="flex justify-start">
@@ -161,7 +160,7 @@ export function ChatWindow({ isOpen, onClose }: ChatWindowProps) {
 
               <div ref={messagesEndRef} />
             </div>
-          </ScrollArea>
+          </div>
 
           {/* Input */}
           <form

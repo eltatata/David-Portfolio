@@ -140,6 +140,16 @@
   mix-blend-mode: normal;
 }
 
+/* Chat scrollbar */
+.chat-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: oklch(1 0 0 / 15%) transparent;
+}
+
+.chat-scroll:hover {
+  scrollbar-color: oklch(1 0 0 / 25%) transparent;
+}
+
 /* Streamdown chat overrides */
 .streamdown-chat {
   font-size: 0.875rem;
