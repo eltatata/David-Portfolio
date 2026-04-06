@@ -66,7 +66,7 @@ export function ChatWindow({ isOpen, onClose }: ChatWindowProps) {
               variant="ghost"
               size="sm"
               onClick={onClose}
-              className="h-7 w-7 p-0 rounded-full hover:bg-muted"
+              className="h-7 w-7 p-0 rounded-full hover:bg-muted cursor-pointer"
             >
               <X className="h-4 w-4" />
             </Button>
