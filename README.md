@@ -1,9 +1,8 @@
-
-<img width="1904" height="989" alt="Screenshot 2025-09-27 at 11 04 28 PM" src="https://github.com/user-attachments/assets/92da5374-c3f1-4465-8c62-d50854963acc" />
+<img width="1920" height="992" alt="Screenshot 2026-04-08 at 5 47 51 PM" src="https://github.com/user-attachments/assets/24bac408-30de-41dd-b939-c713bc9f7066" />
 
 # David Tabares – Portfolio
 
-Modern portfolio built with Next.js 15 + React 19 (Bun). Ask “David AI” about my experience, enjoy smooth interactive animations, and switch between English/Spanish.
+Modern portfolio built with Next.js 16 + React 19 (Bun). Ask “David AI” about my experience, enjoy smooth interactive animations, and switch between English/Spanish.
 
 ## Features
 
